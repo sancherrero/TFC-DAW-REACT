@@ -1,8 +1,6 @@
 import React from "react";
 import Card from 'react-bootstrap/Card'
 import CardColumns from 'react-bootstrap/CardColumns'
-import CardGroup from 'react-bootstrap/CardGroup'
-
 
 /*
  * CardComponent
