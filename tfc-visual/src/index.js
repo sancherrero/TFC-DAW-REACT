@@ -2,17 +2,15 @@ import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import NavBar from "./components/nav/NavBar";
-import Footer from "./components/footer/Footer";
-import Carrousel from "./components/carousel/Carousel";
+import ContainerFluid from "./components/containerFluid/ContainerFluid";
+//import Carrousel from "./components/carousel/Carousel";
 import reportWebVitals from "./reportWebVitals";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 
 ReactDOM.render(
   <Fragment>
-    <NavBar />
-    <Footer />
+    <ContainerFluid />
   </Fragment>,
   document.getElementById("root")
 );
