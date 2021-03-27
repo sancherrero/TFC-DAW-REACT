@@ -6,7 +6,7 @@ class Carrousel extends React.Component {
     return (
       <Carousel>
         <Carousel.Item>
-          <img className="d-block w-100" src="./img/image-" alt="First slide" />
+          <img className="d-block w-100" src="./img/wallpaper_1.jpg?text=First slide&bg=373940" alt="First slide" />
           <Carousel.Caption>
             <h3>First slide label</h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -15,7 +15,7 @@ class Carrousel extends React.Component {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=Second slide&bg=282c34"
+            src="./img/Wallpaper_2.png?text=Second slide&bg=282c34"
             alt="Second slide"
           />
 
@@ -27,7 +27,7 @@ class Carrousel extends React.Component {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="holder.js/800x400?text=Third slide&bg=20232a"
+            src="./img/Wallpaper_3.jpg?text=Third slide&bg=20232a"
             alt="Third slide"
           />
 
