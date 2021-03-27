@@ -1,12 +1,19 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 
+
+/*
+ * Carrusel
+ * Las imagenes se insertan desde public/img/ejemplo.jpg
+ */
 class Carrousel extends React.Component {
   render() {
     return (
       <Carousel>
         <Carousel.Item>
-          <img className="d-block w-100" src="./img/wallpaper_1.jpg?text=First slide&bg=373940" alt="First slide" />
+          <img className="d-block w-100" 
+          src="./img/wallpaper_1.jpg?text=First slide&bg=373940" 
+          alt="First slide" />
           <Carousel.Caption>
             <h3>First slide label</h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
