@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import NavBar from "../nav/NavBar";
 import Carrusel from "../carousel/Carousel";
+import CardComponent from "../card/CardComponent";
 import Footer from "../footer/Footer";
 class ContainerFluid extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class ContainerFluid extends React.Component {
           <Col>
             <NavBar />
             <Carrusel />
+            <CardComponent />
             <Footer />
           </Col>
         </Row>
