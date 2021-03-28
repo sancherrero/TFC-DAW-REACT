@@ -6,7 +6,6 @@ import Col from "react-bootstrap/Col";
 import NavBar from "../nav/NavBar";
 import Carrusel from "../carousel/Carousel";
 import CardComponent from "../card/CardComponent";
-=======
 import CardDeck from "../ofertasDeck/CardDeck";
 import Footer from "../footer/Footer";
 class ContainerFluid extends React.Component {
