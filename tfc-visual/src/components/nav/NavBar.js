@@ -10,34 +10,54 @@ class NavBar extends React.Component {
   render() {
     return (
       <Fragment>
-        <Navbar bg="dark" expand="lg">
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar className="bg-primary" expand="lg">
+          <Navbar.Brand href="#home" className="text-white">
+            CoreComp
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <Nav.Link href="#home" className="text-white">
+                Inicio
+              </Nav.Link>
+              <Nav.Link href="#link" className="text-white">
+                Configurador
+              </Nav.Link>
+              <NavDropdown
+                title="Componentes"
+                id="basic-nav-dropdown"
+                className="text-white"
+              >
+                <NavDropdown.Item href="#action/3.1">
+                  Procesadores
+                </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
-                  Another action
+                  Tarjetas Gráficas
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">
-                  Something
+                  Placas Base
                 </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">
+                  Memorias RAM
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">
+                  Discos Duros
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">
+                  Fuentes de Alimentación
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">Cajas</NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
-                  Separated link
-                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.4">Todo</NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Form inline>
               <FormControl
                 type="text"
-                placeholder="Search"
+                placeholder="Intel Core I5..."
                 className="mr-sm-2"
               />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-success">Buscar</Button>
             </Form>
           </Navbar.Collapse>
         </Navbar>
