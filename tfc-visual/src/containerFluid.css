@@ -1,0 +1,13 @@
+.section-ofertas {
+  margin-top: 10vh;
+}
+
+h1 {
+  text-align: center;
+}
+
+hr {
+  border: none;
+  height: 0.5vh;
+  background-color: black;
+}
