@@ -8,15 +8,15 @@ import Carrusel from "../carousel/Carousel";
 import CardComponent from "../card/CardComponent";
 import CardDeck from "../ofertasDeck/CardDeck";
 import Footer from "../footer/Footer";
+import Button from 'react-bootstrap/Button'
 class ContainerFluid extends React.Component {
   render() {
     return (
       <Container fluid>
         <Row>
           <Col>
-            <NavBar />
+            <NavBar/>
             <Carrusel />
-            <CardComponent />
             <div className="section-ofertas">
               <h1>Novedades</h1>
               <hr></hr>
