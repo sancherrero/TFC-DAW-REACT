@@ -5,10 +5,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import NavBar from "../nav/NavBar";
 import Carrusel from "../carousel/Carousel";
-import CardComponent from "../card/CardComponent";
+
 import CardDeck from "../ofertasDeck/CardDeck";
 import Footer from "../footer/Footer";
-import Button from 'react-bootstrap/Button'
+
 class ContainerFluid extends React.Component {
   render() {
     return (
