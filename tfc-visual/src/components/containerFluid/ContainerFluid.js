@@ -26,6 +26,13 @@ const ContainerFluid = () => {
     fetchData();
   }, []);
 
+  const categorias = [
+    {
+      nombre: "Procesadores",
+      img: "",
+    },
+  ];
+
   return (
     <Container fluid>
       <Row>
