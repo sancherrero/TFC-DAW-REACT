@@ -10,6 +10,7 @@ import CardColumns from "react-bootstrap/CardColumns";
 import CardDeck from "react-bootstrap/CardDeck";
 import Card from "../ofertasDeck/Card";
 import Footer from "../footer/Footer";
+import Spinner from 'react-bootstrap/Spinner'
 
 const ContainerFluid = () => {
   const [data, setData] = useState([]);
@@ -42,13 +43,16 @@ const ContainerFluid = () => {
           <div className="section-ofertas">
             <h1>Novedades</h1>
             <CardColumns>
-              {data.map((item) => (
+              {data !== null ? data.map((item) => (
                 <Container>
                   <Col>
                     <Card items={item} />
                   </Col>
                 </Container>
-              ))}
+              )) :  
+            <Spinner animation="border" role="status">
+              <span className="sr-only">Cargando...</span>
+            </Spinner>}
             </CardColumns>
             <hr></hr>
           </div>
