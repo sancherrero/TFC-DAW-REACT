@@ -6,14 +6,18 @@ import Carousel from "react-bootstrap/Carousel";
  * Carrusel
  * Las imagenes se insertan desde public/img/ejemplo.jpg
  */
+const style = {maxHeight: "700px"};
 class Carrousel extends React.Component {
+  
   render() {
     return (
-        <Carousel className="h-25 d-flex justify-content-center" >
+        <Carousel className="d-flex justify-content-center" >
           <Carousel.Item>
-            <img className="d-block w-100"
-              src="./img/wallpaper_1.jpg?text=First slide&bg=373940"
-              alt="First slide" />
+            <img className="d-block" 
+              src="./img/Wallpaper_3.png?text=First"
+              alt="First slide" 
+              style={style}
+            />
             <Carousel.Caption>
               <h3>First slide label</h3>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -21,9 +25,10 @@ class Carrousel extends React.Component {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100"
-              src="./img/Wallpaper_2.png?text=Second slide&bg=282c34"
+              className="d-block"
+              src="./img/Wallpaper_3.png?text=Second"
               alt="Second slide"
+              style={style}
             />
 
             <Carousel.Caption>
@@ -33,9 +38,10 @@ class Carrousel extends React.Component {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100"
-              src="./img/Wallpaper_3.jpg?text=Third slide&bg=20232a"
+              className="d-block"
+              src="./img/Wallpaper_3.png?text=Third"
               alt="Third slide"
+              style={style}
             />
 
             <Carousel.Caption>
