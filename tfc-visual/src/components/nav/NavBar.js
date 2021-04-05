@@ -5,6 +5,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+import Link from "../Link";
 
 class NavBar extends React.Component {
   render() {
@@ -17,38 +18,60 @@ class NavBar extends React.Component {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="#home" className="text-white">
-                Inicio
+              <Nav.Link>
+                <Link href="/home" className="text-white item">
+                  Inicio
+                </Link>
               </Nav.Link>
-              <Nav.Link href="#link" className="text-white">
-                Configurador
+              <Nav.Link>
+                <Link href="/configurador" className="text-white item">
+                  Configurador
+                </Link>
               </Nav.Link>
               <NavDropdown
                 title="Componentes"
                 id="basic-nav-dropdown"
                 className="text-white"
               >
-                <NavDropdown.Item href="#action/3.1">
-                  Procesadores
+                <NavDropdown.Item>
+                  <Link href="/procesadores" className="item">
+                    Procesadores
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Tarjetas Gráficas
+                <NavDropdown.Item>
+                  <Link href="/tarjetas_graficas" className="item">
+                    Tarjetas Gráficas
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Placas Base
+                <NavDropdown.Item>
+                  <Link href="/placas_base" className="item">
+                    Placas Base
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Memorias RAM
+                <NavDropdown.Item>
+                  <Link href="/memorias_ram" className="item">
+                    Memorias RAM
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Discos Duros
+                <NavDropdown.Item>
+                  <Link href="/discos_duros" className="item">
+                    Discos Duros
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">
-                  Fuentes de Alimentación
+                <NavDropdown.Item>
+                  <Link href="/fuentes_alimentacion" className="item">
+                    Fuentes de Alimentación
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Cajas</NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link href="/cajas" className="item">
+                    Cajas
+                  </Link>
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Todo</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.4" className="item">
+                  Todo
+                </NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Form inline>

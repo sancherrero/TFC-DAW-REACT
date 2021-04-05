@@ -12,7 +12,7 @@ import Card from "../ofertasDeck/Card";
 import Footer from "../footer/Footer";
 import Spinner from "react-bootstrap/Spinner";
 
-const ContainerFluid = () => {
+const Home = () => {
   const [data, setData] = useState([]);
 
   //var cors = require("cors");
@@ -64,4 +64,4 @@ const ContainerFluid = () => {
   );
 };
 
-export default ContainerFluid;
+export default Home;

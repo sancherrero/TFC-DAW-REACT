@@ -1,27 +1,24 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Button from "react-bootstrap/Button";
-
-function App() {
+//import ContainerFluid from "./components/containerFluid/ContainerFluid";
+import NavBar from "./components/nav/NavBar";
+import Route from "./components/Route";
+import Home from "./components/paginas/Home";
+import Configurador from "./components/paginas/Configurador";
+import Procesadores from "./components/paginas/Procesadores";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Button />
+    <div>
+      <NavBar />
+      <Route path="/home">
+        <Home />
+      </Route>
+      <Route path="/configurador">
+        <Configurador />
+      </Route>
+      <Route path="/procesadores">
+        <Procesadores />
+      </Route>
     </div>
   );
-}
+};
 
 export default App;

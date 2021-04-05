@@ -5,14 +5,14 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import Carrusel from "../carousel/Carousel";
+//import Carrusel from "../carousel/Carousel";
 import CardColumns from "react-bootstrap/CardColumns";
 //import CardDeck from "react-bootstrap/CardDeck";
 import Card from "../ofertasDeck/Card";
 import Footer from "../footer/Footer";
 import Spinner from "react-bootstrap/Spinner";
 
-const ContainerFluid = () => {
+const Procesadores = () => {
   const [data, setData] = useState([]);
 
   //var cors = require("cors");
@@ -20,7 +20,7 @@ const ContainerFluid = () => {
   useEffect(() => {
     async function fetchData() {
       const result = await axios(
-        "https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?oferta"
+        "https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?procesador"
       );
       setData(result.data);
     }
@@ -38,9 +38,8 @@ const ContainerFluid = () => {
     <Container fluid style={{ height: "100vh", minHeight: "100%vh" }}>
       <Row>
         <Col style={{ height: "100%" }}>
-          <Carrusel />
           <div className="section-ofertas">
-            <h1>Novedades</h1>
+            <h1>Procesadores</h1>
             <CardColumns>
               {data !== null ? (
                 data.map((item) => (
@@ -64,4 +63,4 @@ const ContainerFluid = () => {
   );
 };
 
-export default ContainerFluid;
+export default Procesadores;
