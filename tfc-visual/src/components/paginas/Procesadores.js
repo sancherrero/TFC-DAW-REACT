@@ -38,7 +38,7 @@ const Procesadores = () => {
     <Container fluid style={{ height: "100vh", minHeight: "100%vh" }}>
       <Row>
         <Col style={{ height: "100%" }}>
-          <div className="section-ofertas">
+          <div className="procesadores">
             <h1>Procesadores</h1>
             <CardColumns>
               {data !== null ? (
