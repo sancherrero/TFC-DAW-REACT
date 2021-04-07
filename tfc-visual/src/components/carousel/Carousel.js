@@ -6,7 +6,7 @@ import Carousel from "react-bootstrap/Carousel";
  * Carrusel
  * Las imagenes se insertan desde public/img/ejemplo.jpg
  */
-const style = {maxHeight: "700px"};
+const style = {width:"100vh"};
 class Carrousel extends React.Component {
   
   render() {

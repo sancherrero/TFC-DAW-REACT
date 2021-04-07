@@ -4,10 +4,8 @@ import "../../containerFluid.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
 import Carrusel from "../carousel/Carousel";
 import CardColumns from "react-bootstrap/CardColumns";
-//import CardDeck from "react-bootstrap/CardDeck";
 import Card from "../ofertasDeck/Card";
 import Footer from "../footer/Footer";
 import Spinner from "react-bootstrap/Spinner";
@@ -35,10 +33,8 @@ const Home = () => {
   ];
 */
   return (
-    <Container fluid style={{ height: "100vh", minHeight: "100%vh" }}>
-      <Row>
-        <Col style={{ height: "100%" }}>
-          <Carrusel />
+    <Container fluid style={{ height: "100vh", minHeight: "100vh" }}>
+      <Carrusel style={{width:"100vh"}}/>   
           <div className="section-ofertas">
             <h1>Novedades</h1>
             <CardColumns>
@@ -58,8 +54,6 @@ const Home = () => {
             </CardColumns>
           </div>
           <Footer />
-        </Col>
-      </Row>
     </Container>
   );
 };
