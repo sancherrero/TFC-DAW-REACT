@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../containerFluid.css";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Carrusel from "../carousel/Carousel";
 import CardColumns from "react-bootstrap/CardColumns";
@@ -31,7 +30,7 @@ const Home = () => {
       img: "",
     },
   ];
-*/
+  */
   return (
     <Container fluid style={{ height: "100vh", minHeight: "100vh" }}>
       <Carrusel style={{width:"100vh"}}/>   
@@ -41,7 +40,7 @@ const Home = () => {
               {data !== null ? (
                 data.map((item) => (
                   <Container key={item.id}>
-                    <Col>
+                    <Col> 
                       <Card items={item} />
                     </Col>
                   </Container>
