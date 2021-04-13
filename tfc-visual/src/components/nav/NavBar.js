@@ -19,7 +19,7 @@ class NavBar extends React.Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link>
-                <Link href="/home" className="text-white item">
+                <Link href="/" className="text-white item">
                   Inicio
                 </Link>
               </Nav.Link>

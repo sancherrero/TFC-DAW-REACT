@@ -12,7 +12,7 @@ import Card from "../ofertasDeck/Card";
 import Footer from "../footer/Footer";
 import Spinner from "react-bootstrap/Spinner";
 
-const Procesadores = () => {
+const ConstrucComponente = (props) => {
   const [data, setData] = useState([]);
 
   //var cors = require("cors");
@@ -20,7 +20,7 @@ const Procesadores = () => {
   useEffect(() => {
     async function fetchData() {
       const result = await axios(
-        "https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?procesador"
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?${props.componentType}`
       );
       setData(result.data);
     }
@@ -38,8 +38,8 @@ const Procesadores = () => {
     <Container fluid style={{ height: "100vh", minHeight: "100%vh" }}>
       <Row>
         <Col style={{ height: "100%" }}>
-          <div className="procesadores">
-            <h1>Procesadores</h1>
+          <div className={props.title}>
+            <h1>{props.title}</h1>
             <CardColumns>
               {data !== null ? (
                 data.map((item) => (
@@ -63,4 +63,4 @@ const Procesadores = () => {
   );
 };
 
-export default Procesadores;
+export default ConstrucComponente;
