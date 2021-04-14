@@ -4,10 +4,7 @@ import "../../containerFluid.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
-//import Carrusel from "../carousel/Carousel";
 import CardColumns from "react-bootstrap/CardColumns";
-//import CardDeck from "react-bootstrap/CardDeck";
 import Card from "../ofertasDeck/Card";
 import Footer from "../footer/Footer";
 import Spinner from "react-bootstrap/Spinner";
@@ -19,10 +16,15 @@ const ConstrucComponente = (props) => {
 
   useEffect(() => {
     async function fetchData() {
-      const result = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?${props.componentType}`
-      );
-      setData(result.data);
+      try {
+        const result = await axios(
+          `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipo=${props.componentType}`
+        );
+        setData(result.data);
+      } catch (error) {
+        setData(null);
+        console.log(Object.keys(error), error.message);
+      }
     }
     fetchData();
   }, []);
