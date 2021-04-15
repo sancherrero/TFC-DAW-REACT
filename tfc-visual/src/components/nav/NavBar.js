@@ -12,7 +12,7 @@ class NavBar extends React.Component {
     return (
       <Fragment>
         <Navbar className="bg-primary" expand="lg">
-          <Navbar.Brand href="#home" className="text-white">
+          <Navbar.Brand href="/" className="text-white">
             CoreComp
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
