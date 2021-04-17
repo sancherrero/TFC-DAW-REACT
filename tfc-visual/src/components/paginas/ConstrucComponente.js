@@ -8,11 +8,10 @@ import CardColumns from "react-bootstrap/CardColumns";
 import Card from "../ofertasDeck/Card";
 import Footer from "../footer/Footer";
 import Spinner from "react-bootstrap/Spinner";
+import Paginador from '../paginador/Paginador';
 
 const ConstrucComponente = (props) => {
   const [data, setData] = useState([]);
-
-  //var cors = require("cors");
 
   useEffect(() => {
     async function fetchData() {
@@ -28,14 +27,7 @@ const ConstrucComponente = (props) => {
     }
     fetchData();
   }, []);
-
-  /*const categorias = [
-    {
-      nombre: "Procesadores",
-      img: "",
-    },
-  ];
-*/
+  
   return (
     <Container fluid style={{ height: "100vh", minHeight: "100%vh" }}>
       <Row>
@@ -57,11 +49,12 @@ const ConstrucComponente = (props) => {
                 </Spinner>
               )}
             </CardColumns>
+            <Paginador/>
           </div>
           <Footer />
         </Col>
       </Row>
-    </Container>
+    </Container> 
   );
 };
 
