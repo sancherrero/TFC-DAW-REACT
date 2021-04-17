@@ -1,8 +1,5 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Route from "./../Route";
-import Link from "./../Link";
-import Componente from "./../paginas/Componente";
 
 const OfertasDeck = (props) => {
   return (
@@ -27,18 +24,8 @@ const OfertasDeck = (props) => {
         </Card.Text>
       </Card.Body>
       <Card.Footer>
-        {
-        props.items.url_articulo !== undefined ? 
-        <a href={props.items.url_articulo}>Ir al sitio</a> : 
-        <Link href={"/componente/" + props.items.id} className="text-blue item">
-          Ver mas
-        </Link>
-        }
-        
+        <a href={props.items.url_articulo}>Ir al sitio</a>
       </Card.Footer>
-      <Route path={"/componente/" + props.items.id}>
-         <Componente nombre={props.items.nombre}/>
-      </Route>
     </Card>
   );
 };
