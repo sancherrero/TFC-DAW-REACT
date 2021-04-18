@@ -6,8 +6,10 @@ import Col from "react-bootstrap/Col";
 import Carrusel from "../carousel/Carousel";
 import CardColumns from "react-bootstrap/CardColumns";
 import Card from "../ofertasDeck/Card";
+import CardCategorias from "../ofertasDeck/CardCategorias";
 import Footer from "../footer/Footer";
 import Spinner from "react-bootstrap/Spinner";
+import { categorias } from "../categorias/categorias";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -24,35 +26,46 @@ const Home = () => {
     fetchData();
   }, []);
 
-  /*const categorias = [
-    {
-      nombre: "Procesadores",
-      img: "",
-    },
-  ];
-  */
   return (
     <Container fluid style={{ height: "100vh", minHeight: "100vh" }}>
-      <Carrusel style={{width:"100vh"}}/>   
-          <div className="section-ofertas">
-            <h1>Novedades</h1>
-            <CardColumns>
-              {data !== null ? (
-                data.map((item) => (
-                  <Container key={item.id}>
-                    <Col> 
-                      <Card items={item} />
-                    </Col>
-                  </Container>
-                ))
-              ) : (
-                <Spinner animation="border" role="status">
-                  <span className="sr-only">Cargando...</span>
-                </Spinner>
-              )}
-            </CardColumns>
-          </div>
-          <Footer />
+      <Carrusel style={{ width: "100vh" }} />
+      <div className="section-ofertas">
+        <h1>Novedades</h1>
+        <CardColumns>
+          {data !== null ? (
+            data.map((item) => (
+              <Container key={item.id}>
+                <Col>
+                  <Card items={item} />
+                </Col>
+              </Container>
+            ))
+          ) : (
+            <Spinner animation="border" role="status">
+              <span className="sr-only">Cargando...</span>
+            </Spinner>
+          )}
+        </CardColumns>
+      </div>
+      <div className="section-ofertas">
+        <h1>Categorías</h1>
+        <CardColumns>
+          {categorias !== null ? (
+            categorias.map((item) => (
+              <Container key={item.nombre}>
+                <Col>
+                  <CardCategorias items={item} />
+                </Col>
+              </Container>
+            ))
+          ) : (
+            <Spinner animation="border" role="status">
+              <span className="sr-only">Cargando...</span>
+            </Spinner>
+          )}
+        </CardColumns>
+      </div>
+      <Footer />
     </Container>
   );
 };

@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 class Footer extends React.Component {
   render() {
     return (
-      <Card className="text-center bg-dark">
+      <Card className="text-center bg-dark" style={{ marginTop: "10%" }}>
         <Card.Header className="text-white">About us</Card.Header>
         <Card.Body>
           <Card.Title className="text-white">CoreComp</Card.Title>

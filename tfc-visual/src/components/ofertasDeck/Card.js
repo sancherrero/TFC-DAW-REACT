@@ -6,15 +6,20 @@ import Componente from "./../paginas/Componente";
 
 const OfertasDeck = (props) => {
   return (
-    <Card style={{ height: "50vh", marginTop: "10%" }}>
+    <Card
+      style={{
+        height: "600px",
+        marginTop: "10%",
+      }}
+    >
       <Card.Img
         variant="top"
         src={props.items.url_imagen}
         style={{
           width: "auto",
           height: "auto",
-          maxWidth: "200px",
-          maxHeight: "200px",
+          maxWidth: "300px",
+          maxHeight: "300px",
           margin: "auto",
           display: "block",
         }}
@@ -27,17 +32,19 @@ const OfertasDeck = (props) => {
         </Card.Text>
       </Card.Body>
       <Card.Footer>
-        {
-        props.items.url_articulo !== undefined ? 
-        <a href={props.items.url_articulo}>Ir al sitio</a> : 
-        <Link href={"/componente/" + props.items.id} className="text-blue item">
-          Ver mas
-        </Link>
-        }
-        
+        {props.items.url_articulo !== undefined ? (
+          <a href={props.items.url_articulo}>Ir al sitio</a>
+        ) : (
+          <Link
+            href={"/componente/" + props.items.id}
+            className="text-blue item"
+          >
+            Ver mas
+          </Link>
+        )}
       </Card.Footer>
       <Route path={"/componente/" + props.items.id}>
-         <Componente nombre={props.items.nombre}/>
+        <Componente nombre={props.items.nombre} />
       </Route>
     </Card>
   );
