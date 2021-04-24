@@ -13,13 +13,12 @@ const CardCategorias = (props) => {
           width: "100%",
           height: "200px",
         }}
+        onClick={props.parentCallback}
+        className={props.items.className}
+        value={props.items.value}
       />
       <Card.Body>
-        <Nav.Link>
-          <Link href={props.items.route} className="text-black item">
-            <Card.Title>{props.items.nombre}</Card.Title>
-          </Link>
-        </Nav.Link>
+        <Card.Title>{props.items.nombre}</Card.Title>
       </Card.Body>
     </Card>
   );
