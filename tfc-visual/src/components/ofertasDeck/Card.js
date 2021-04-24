@@ -44,7 +44,7 @@ const OfertasDeck = (props) => {
         )}
       </Card.Footer>
       <Route path={"/componente/" + props.items.id}>
-        <Componente nombre={props.items.nombre} />
+        <Componente />
       </Route>
     </Card>
   );

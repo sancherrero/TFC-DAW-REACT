@@ -4,6 +4,7 @@ import Route from "./components/Route";
 import Home from "./components/paginas/Home";
 import Configurador from "./components/paginas/Configurador";
 import ConstrucComponente from "./components/paginas/ConstrucComponente";
+import Footer from "./components/footer/Footer";
 const App = () => {
   return (
     <div>
@@ -39,6 +40,7 @@ const App = () => {
         <ConstrucComponente componentType="componentes" title="Componentes" />
       </Route>
     </div>
+    
   );
 };
 
