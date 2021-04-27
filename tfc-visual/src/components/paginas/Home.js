@@ -35,7 +35,7 @@ const Home = () => {
           {data !== null ? (
             data.map((item) => (
               <Container key={item.id}>
-                <Col>
+                <Col className="col-sm-12">
                   <Card items={item} />
                 </Col>
               </Container>

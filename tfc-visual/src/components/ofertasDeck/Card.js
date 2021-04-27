@@ -16,8 +16,8 @@ const OfertasDeck = (props) => {
         variant="top"
         src={props.items.url_imagen}
         style={{
-          width: "auto",
-          height: "auto",
+          width: "100%",
+          height: "300px",
           maxWidth: "300px",
           maxHeight: "300px",
           margin: "auto",

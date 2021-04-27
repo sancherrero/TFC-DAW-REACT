@@ -6,7 +6,8 @@ import Footer from "../footer/Footer";
 import { useState } from "react";
 import CardColumns from "react-bootstrap/CardColumns";
 import CardCategorias from "../ofertasDeck/CardCategorias";
-
+import TableConfigurador from "../TableConfigurador";
+import Table from "react-bootstrap/Table";
 import Spinner from "react-bootstrap/Spinner";
 import { categoriasGenerador } from "../categorias/categoriasGenerador";
 
@@ -46,6 +47,10 @@ const Configurador = () => {
     }
   };
 
+  function tableContent() {
+    return <TableConfigurador properties={configuration} />;
+  }
+
   return (
     <Container fluid style={{ height: "100vh", minHeight: "100%vh" }}>
       <Row>
@@ -54,6 +59,7 @@ const Configurador = () => {
             <h1>CONFIGURA TU EQUIPO A MEDIDA</h1>
             <hr />
             <CardColumns>
+              {console.log(configuration)}
               {categoriasGenerador !== null ? (
                 categoriasGenerador.map((item) => (
                   <Container key={item.nombre}>
@@ -71,6 +77,19 @@ const Configurador = () => {
                 </Spinner>
               )}
             </CardColumns>
+            <h1>EQUIPO SELECCIONADO</h1>
+            <hr />
+            <Table striped bordered hover variant="dark">
+              <thead>
+                <tr>
+                  <th>Tipo de uso</th>
+                  <th>Rango de precio</th>
+                  <th>Tamaño</th>
+                  <th>Tipo de refrigeración</th>
+                </tr>
+              </thead>
+              <tbody>{tableContent()}</tbody>
+            </Table>
           </div>
           <Footer />
         </Col>
