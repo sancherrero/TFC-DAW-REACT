@@ -9,7 +9,7 @@ import Card from "../ofertasDeck/Card";
 import CardCategorias from "../ofertasDeck/CardCategorias";
 import Footer from "../footer/Footer";
 import Spinner from "react-bootstrap/Spinner";
-import { categorias } from "../categorias/categorias";
+import { categorias } from "../utils/categorias";
 
 const Home = () => {
   const [data, setData] = useState([]);

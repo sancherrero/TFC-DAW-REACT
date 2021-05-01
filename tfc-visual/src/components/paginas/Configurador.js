@@ -9,7 +9,10 @@ import CardCategorias from "../ofertasDeck/CardCategorias";
 import TableConfigurador from "../TableConfigurador";
 import Table from "react-bootstrap/Table";
 import Spinner from "react-bootstrap/Spinner";
-import { categoriasGenerador } from "../categorias/categoriasGenerador";
+import { categoriasGenerador } from "../utils/categoriasGenerador";
+import { gaming } from "../utils/gaming";
+import { multimedia } from "../utils/multimedia";
+import { workstation } from "../utils/workstation";
 
 const Configurador = () => {
   const [configuration, setConfiguration] = useState({
@@ -18,6 +21,40 @@ const Configurador = () => {
     forma: "",
     refrigeracion: "",
   });
+
+  const getConfiguration = () => {
+    if (isComplete() !== false) {
+      switch (configuration.tipoUso) {
+        case "gaming":
+          switch (configuration.precio) {
+            case "barato":
+              console.log(gaming[0].barato[0]);
+              break;
+            case "equilibrado":
+              console.log(gaming[0].equlibrado[0]);
+              break;
+            case "top":
+              console.log(gaming[0].top[0]);
+              break;
+            default:
+              console.log("No ha funcionado");
+              break;
+          }
+        default: {
+          console.log("No ha entrado en gaming");
+          break;
+        }
+      }
+    }
+  };
+
+  const isComplete = () => {
+    for (const properties in configuration) {
+      if (properties.lenght === 0) {
+        return false;
+      }
+    }
+  };
 
   const handleClick = (event) => {
     if (!event) {
@@ -89,6 +126,7 @@ const Configurador = () => {
                 </tr>
               </thead>
               <tbody>{tableContent()}</tbody>
+              {alert(getConfiguration())}
             </Table>
           </div>
           <Footer />
