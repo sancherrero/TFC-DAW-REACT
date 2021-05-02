@@ -24,25 +24,16 @@ const Configurador = () => {
 
   const getConfiguration = () => {
     if (isComplete() !== false) {
-      switch (configuration.tipoUso) {
-        case "gaming":
-          switch (configuration.precio) {
-            case "barato":
-              console.log(gaming[0].barato[0]);
-              break;
-            case "equilibrado":
-              console.log(gaming[0].equlibrado[0]);
-              break;
-            case "top":
-              console.log(gaming[0].top[0]);
-              break;
-            default:
-              console.log("No ha funcionado");
-              break;
-          }
-        default: {
-          console.log("No ha entrado en gaming");
-          break;
+      if(configuration.tipoUso === "gaming"){
+        switch (configuration.precio) {
+          case "economico":
+            return gaming[0].barato[0];
+          case "equilibrado":
+            return gaming[0].equlibrado[0];
+          case "top":
+            return gaming[0].top[0];
+          default:
+            console.log("No ha funcionado");
         }
       }
     }
@@ -126,7 +117,7 @@ const Configurador = () => {
                 </tr>
               </thead>
               <tbody>{tableContent()}</tbody>
-              {alert(getConfiguration())}
+              {console.log(getConfiguration())}
             </Table>
           </div>
           <Footer />
