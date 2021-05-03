@@ -25,19 +25,28 @@ const Configurador = () => {
   const getConfiguration = () => {
     if (isComplete() !== false) {
       if(configuration.tipoUso === "gaming"){
-        switch (configuration.precio) {
-          case "economico":
-            return gaming[0].barato[0];
-          case "equilibrado":
-            return gaming[0].equlibrado[0];
-          case "top":
-            return gaming[0].top[0];
-          default:
-            console.log("No ha funcionado");
-        }
+        return getTipoPrice(configuration.precio, gaming[0]);
+      } else if(configuration.tipoUso === "multimedia"){
+        return getTipoPrice(configuration.precio, multimedia[0]);
+      } else if(configuration.tipoUso === "workstation"){
+        return getTipoPrice(configuration.precio, workstation[0]);
       }
     }
   };
+
+  const getTipoPrice = (configurationType, configuration) => {
+    switch (configurationType) {
+      case "economico":
+        return configuration.barato[0];
+      case "equilibrado":
+        return configuration.equilibrado[0];
+      case "top":
+        return configuration.top[0];
+      default:
+        return "No ha funcionado";
+    }
+    
+  }
 
   const isComplete = () => {
     for (const properties in configuration) {

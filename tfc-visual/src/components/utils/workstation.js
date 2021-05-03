@@ -1,4 +1,5 @@
-export const workstation  = [{
+export const workstation = [
+  {
     barato: [
       {
         ram: 16,
@@ -22,10 +23,10 @@ export const workstation  = [{
         ram: [64, 128],
         gpu: [10],
         procesador: 64,
-        discos: [{ m2: 2000, sdd: 1000, hdd:10000 }],
+        discos: [{ m2: 2000, sdd: 1000, hdd: 10000 }],
         fuente: [1000, 1050],
-      }
-    ]
-  }];
-  
-  
+      },
+    ],
+  },
+];
+

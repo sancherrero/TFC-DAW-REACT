@@ -9,7 +9,7 @@ export const gaming = [
         fuente: [600, 650],
       },
     ],
-    equlibrado: [
+    equilibrado: [
       {
         ram: 16,
         gpu: [5, 6],
