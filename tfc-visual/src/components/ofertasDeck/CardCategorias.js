@@ -1,7 +1,5 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Link from "../Link";
-import Nav from "react-bootstrap/Nav";
 
 const CardCategorias = (props) => {
   return (

@@ -6,13 +6,14 @@ import Footer from "../footer/Footer";
 import { useState } from "react";
 import CardColumns from "react-bootstrap/CardColumns";
 import CardCategorias from "../ofertasDeck/CardCategorias";
-import TableConfigurador from "../TableConfigurador";
-import Table from "react-bootstrap/Table";
+import TableConfigurador from "../tableConfigurador/TableConfigurador";
 import Spinner from "react-bootstrap/Spinner";
 import { categoriasGenerador } from "../utils/categoriasGenerador";
 import { gaming } from "../utils/gaming";
 import { multimedia } from "../utils/multimedia";
 import { workstation } from "../utils/workstation";
+import Button from "react-bootstrap/Button";
+import Acordeon from "../AcordeonConfigurador/Acordeon";
 
 const Configurador = () => {
   const [configuration, setConfiguration] = useState({
@@ -24,11 +25,11 @@ const Configurador = () => {
 
   const getConfiguration = () => {
     if (isComplete() !== false) {
-      if(configuration.tipoUso === "gaming"){
+      if (configuration.tipoUso === "gaming") {
         return getTipoPrice(configuration.precio, gaming[0]);
-      } else if(configuration.tipoUso === "multimedia"){
+      } else if (configuration.tipoUso === "multimedia") {
         return getTipoPrice(configuration.precio, multimedia[0]);
-      } else if(configuration.tipoUso === "workstation"){
+      } else if (configuration.tipoUso === "workstation") {
         return getTipoPrice(configuration.precio, workstation[0]);
       }
     }
@@ -45,8 +46,7 @@ const Configurador = () => {
       default:
         return "No ha funcionado";
     }
-    
-  }
+  };
 
   const isComplete = () => {
     for (const properties in configuration) {
@@ -84,17 +84,14 @@ const Configurador = () => {
     }
   };
 
-  function tableContent() {
-    return <TableConfigurador properties={configuration} />;
-  }
-
   return (
-    <Container fluid style={{ height: "100vh", minHeight: "100%vh" }}>
-      <Row>
+    <Container fluid style={{ height: "100vh", minHeight: "100vh" }}>
+      <Row style={{ margin: "15vh 5vw" }}>
         <Col style={{ height: "100%" }}>
           <div>
-            <h1>CONFIGURA TU EQUIPO A MEDIDA</h1>
+            <h1 style={{ marginBottom: "5%" }}>CONFIGURA TU EQUIPO A MEDIDA</h1>
             <hr />
+
             <CardColumns>
               {console.log(configuration)}
               {categoriasGenerador !== null ? (
@@ -114,20 +111,38 @@ const Configurador = () => {
                 </Spinner>
               )}
             </CardColumns>
-            <h1>EQUIPO SELECCIONADO</h1>
+            <h1 style={{ margin: "5% 0%" }}>EQUIPO SELECCIONADO</h1>
             <hr />
-            <Table striped bordered hover variant="dark">
-              <thead>
-                <tr>
-                  <th>Tipo de uso</th>
-                  <th>Rango de precio</th>
-                  <th>Tamaño</th>
-                  <th>Tipo de refrigeración</th>
-                </tr>
-              </thead>
-              <tbody>{tableContent()}</tbody>
-              {console.log(getConfiguration())}
-            </Table>
+            <div
+              className="mb-2"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <TableConfigurador properties={configuration} />
+            </div>
+          </div>
+        </Col>
+      </Row>
+      <Row>
+        <Col style={{ height: "100%" }}>
+          <div
+            className="mb-2"
+            style={{
+              textAlign: "center",
+            }}
+          >
+            <Button
+              variant="primary"
+              size="lg"
+              style={{
+                margin: "10px 0px",
+              }}
+            >
+              Generar Configuración
+            </Button>
+            <Acordeon items={getConfiguration()} />
           </div>
           <Footer />
         </Col>
