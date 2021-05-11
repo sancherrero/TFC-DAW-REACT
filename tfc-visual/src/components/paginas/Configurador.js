@@ -14,6 +14,7 @@ import { multimedia } from "../utils/multimedia";
 import { workstation } from "../utils/workstation";
 import Button from "react-bootstrap/Button";
 import Acordeon from "../AcordeonConfigurador/Acordeon";
+import ConsultasConfigurador from "../consultasConfigurador/ConsultasConfigurador";
 
 const Configurador = () => {
   const [configuration, setConfiguration] = useState({
@@ -38,7 +39,8 @@ const Configurador = () => {
   const getTipoPrice = (configurationType, configuration) => {
     switch (configurationType) {
       case "economico":
-        return configuration.barato[0];
+        let result = ConsultasConfigurador(configuration.barato[0]);
+        return result;
       case "equilibrado":
         return configuration.equilibrado[0];
       case "top":
@@ -139,10 +141,11 @@ const Configurador = () => {
               style={{
                 margin: "10px 0px",
               }}
+              onClick={() => getConfiguration()}
             >
               Generar Configuración
             </Button>
-            <Acordeon items={getConfiguration()} />
+            <Acordeon items={"null"} />
           </div>
           <Footer />
         </Col>
