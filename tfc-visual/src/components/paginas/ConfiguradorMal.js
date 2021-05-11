@@ -14,7 +14,7 @@ import { multimedia } from "../utils/multimedia";
 import { workstation } from "../utils/workstation";
 import Button from "react-bootstrap/Button";
 import Acordeon from "../AcordeonConfigurador/Acordeon";
-import axios from "axios";
+import ConsultasConfigurador from "../consultasConfigurador/ConsultasConfigurador";
 
 const Configurador = () => {
   const [configuration, setConfiguration] = useState({
@@ -23,56 +23,6 @@ const Configurador = () => {
     forma: "",
     refrigeracion: "",
   });
-  const [data, setData] = useState([
-    {
-      ram: "",
-      gpu: "",
-      procesador: "",
-      discos: [{ ssd: "", m2: "", hdd: "" }],
-      fuente: "",
-    },
-  ]);
-
-  const fetchData = async (param) => {
-    try {
-      const ramResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.ram}`
-      );
-      const gpuResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.gpu}`
-      );
-      const procesadorResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.procesador}`
-      );
-      const discoSsdResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.ssd}`
-      );
-      const discoM2Result = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.m2}`
-      );
-      const discoHddResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.hdd}`
-      );
-      const fuenteResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.fuente}`
-      );
-      setData({
-        ram: ramResult.data,
-        gpu: gpuResult.data,
-        procesador: procesadorResult.data,
-        discos: {
-          ssd: discoSsdResult.data,
-          m2: discoM2Result.data,
-          hdd: discoHddResult.data,
-        },
-        fuente: fuenteResult.data,
-      });
-      console.log(data);
-    } catch (error) {
-      //setData(null);
-      console.log(Object.keys(error), error.message);
-    }
-  };
 
   const getConfiguration = () => {
     if (isComplete() !== false) {
@@ -89,7 +39,7 @@ const Configurador = () => {
   const getTipoPrice = (configurationType, configuration) => {
     switch (configurationType) {
       case "economico":
-        let result = fetchData(configuration.barato[0]);
+        let result = ConsultasConfigurador(configuration.barato[0]);
         return result;
       case "equilibrado":
         return configuration.equilibrado[0];
@@ -115,22 +65,22 @@ const Configurador = () => {
       if (event.currentTarget.className.includes("tipoUso")) {
         setConfiguration({
           ...configuration,
-          tipoUso: event.currentTarget.attributes["value"].nodeValue,
+          tipoUso: event.currentTarget.attributes[2].nodeValue,
         });
       } else if (event.currentTarget.className.includes("precio")) {
         setConfiguration({
           ...configuration,
-          precio: event.currentTarget.attributes["value"].nodeValue,
+          precio: event.currentTarget.attributes[2].nodeValue,
         });
       } else if (event.currentTarget.className.includes("forma")) {
         setConfiguration({
           ...configuration,
-          forma: event.currentTarget.attributes["value"].nodeValue,
+          forma: event.currentTarget.attributes[2].nodeValue,
         });
       } else if (event.currentTarget.className.includes("refrigeracion")) {
         setConfiguration({
           ...configuration,
-          refrigeracion: event.currentTarget.attributes["value"].nodeValue,
+          refrigeracion: event.currentTarget.attributes[2].nodeValue,
         });
       }
     }
@@ -195,7 +145,7 @@ const Configurador = () => {
             >
               Generar Configuración
             </Button>
-            <Acordeon items={data} />
+            <Acordeon items={"null"} />
           </div>
           <Footer />
         </Col>
