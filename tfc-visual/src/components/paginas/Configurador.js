@@ -115,10 +115,11 @@ const Configurador = () => {
   //ESTE MÉTODO INTENTA COMPROBAR QUE LAS PROPERTIES DE data no estén vacías
   const objectFilled = () => {
     for (const properties in data) {
-      if (properties.lenght === 0) {
+      if (properties.length === 0) {
         return false;
       }
     }
+    return true;
   };
 
   const handleClick = (event) => {
@@ -149,6 +150,7 @@ const Configurador = () => {
     }
   };
 
+  const objetos = objectFilled()?"<div>si</div>":"";
   return (
     <Container fluid style={{ height: "100vh", minHeight: "100vh" }}>
       <Row style={{ margin: "15vh 5vw" }}>
@@ -209,19 +211,7 @@ const Configurador = () => {
               Generar Configuración
             </Button>
 
-            {
-              //Aquí tenemos que hacer que, si no está vacío lo imprima y si está vacío.no
-              objectFilled()
-                ? console.log(
-                    `Procesador: ` +
-                      data.procesador[0].nombre +
-                      `Tarjeta Gráfica: ` +
-                      data.gpu[0].nombre +
-                      `RAM: ` +
-                      data.ram[0].nombre
-                  )
-                : null
-            }
+            {objetos }
           </div>
           <Footer />
         </Col>
