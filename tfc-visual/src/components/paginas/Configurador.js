@@ -23,6 +23,8 @@ const Configurador = () => {
     forma: "",
     refrigeracion: "",
   });
+
+  //gastarlo en el acordeon que se le muestra al usuario
   const [data, setData] = useState([
     {
       ram: "",
@@ -35,26 +37,28 @@ const Configurador = () => {
 
   const fetchData = async (param) => {
     try {
+      //https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=memoria_ram&min=16&max=128
+      //https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=memoria_ram&min=16
       const ramResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.ram}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=ram&min=${param.ram}`
       );
       const gpuResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.gpu}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=gpu&min=${param.gpu[0]}`
       );
       const procesadorResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.procesador}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=procesador&min=${param.procesador}`
       );
       const discoSsdResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.ssd}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=discos&tipoDisco=ssd&min=${param.discos[0].ssd}`
       );
       const discoM2Result = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.m2}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=discos&tipoDisco=m2&min=${param.discos[0].m2}`
       );
       const discoHddResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.hdd}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=discos&tipoDisco=hdd&min=${param.discos[0].hdd}`
       );
       const fuenteResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?search=${param.fuente}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=fuente&min=${param.fuente[0]}`
       );
       setData({
         ram: ramResult.data,
@@ -67,7 +71,7 @@ const Configurador = () => {
         },
         fuente: fuenteResult.data,
       });
-      console.log(data);
+      console.log(`Data de fetchdata: ${data}`);
     } catch (error) {
       //setData(null);
       console.log(Object.keys(error), error.message);
@@ -102,6 +106,15 @@ const Configurador = () => {
 
   const isComplete = () => {
     for (const properties in configuration) {
+      if (properties.lenght === 0) {
+        return false;
+      }
+    }
+  };
+
+  //ESTE MÉTODO INTENTA COMPROBAR QUE LAS PROPERTIES DE data no estén vacías
+  const objectFilled = () => {
+    for (const properties in data) {
       if (properties.lenght === 0) {
         return false;
       }
@@ -195,7 +208,20 @@ const Configurador = () => {
             >
               Generar Configuración
             </Button>
-            <Acordeon items={data} />
+
+            {
+              //Aquí tenemos que hacer que, si no está vacío lo imprima y si está vacío.no
+              objectFilled()
+                ? console.log(
+                    `Procesador: ` +
+                      data.procesador[0].nombre +
+                      `Tarjeta Gráfica: ` +
+                      data.gpu[0].nombre +
+                      `RAM: ` +
+                      data.ram[0].nombre
+                  )
+                : null
+            }
           </div>
           <Footer />
         </Col>

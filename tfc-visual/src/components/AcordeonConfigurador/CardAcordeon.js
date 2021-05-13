@@ -18,10 +18,10 @@ const CardAcordeon = (props) => {
               <h3>PROCESADOR</h3>
               <Row>
                 <Col xs={12} md={8}>
-                  <p>Intel Core i9-10900K 3.7 GHz</p>
+                  <p>{props.items}</p>
                 </Col>
                 <Col xs={6} md={4}>
-                  <p>459,90 €</p>
+                  <p>{props.items.procesador} €</p>
                 </Col>
               </Row>
             </Col>

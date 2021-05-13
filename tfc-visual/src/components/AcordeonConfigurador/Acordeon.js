@@ -6,7 +6,7 @@ const Acordeon = (props) => {
   //const configuraciones = props.items;
   return (
     <Accordion defaultActiveKey="0">
-      <CardAcordeon />
+      <CardAcordeon items={props.items} />
     </Accordion>
   );
 };
