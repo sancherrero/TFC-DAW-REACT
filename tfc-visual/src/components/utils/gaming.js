@@ -5,7 +5,7 @@ export const gaming = [
         ram: 8,
         gpu: [2, 4],
         procesador: 4,
-        discos: [{ ssd: 240, hdd: 500 }],
+        discos: [{ ssd: 240, hdd: 480 }],
         fuente: [600, 650],
       },
     ],

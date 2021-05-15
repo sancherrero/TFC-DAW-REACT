@@ -17,6 +17,7 @@ import Acordeon from "../AcordeonConfigurador/Acordeon";
 import axios from "axios";
 
 const Configurador = () => {
+  var elements = [];
   const [configuration, setConfiguration] = useState({
     tipoUso: "",
     precio: "",
@@ -32,6 +33,8 @@ const Configurador = () => {
       procesador: "",
       discos: [{ ssd: "", m2: "", hdd: "" }],
       fuente: "",
+      placa: "",
+      caja: "",
     },
   ]);
 
@@ -60,6 +63,12 @@ const Configurador = () => {
       const fuenteResult = await axios(
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=fuente&min=${param.fuente[0]}`
       );
+      const placaResult = await axios(
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=placa&min=${procesadorResult.data[0].socket}`
+      );
+      const cajaResult = await axios(
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=caja&min=${placaResult.data[0].factor_forma}`
+      );
       setData({
         ram: ramResult.data,
         gpu: gpuResult.data,
@@ -70,6 +79,8 @@ const Configurador = () => {
           hdd: discoHddResult.data,
         },
         fuente: fuenteResult.data,
+        placa: placaResult.data,
+        caja: cajaResult.data,
       });
       console.log(`Data de fetchdata: ${data}`);
     } catch (error) {
@@ -150,7 +161,33 @@ const Configurador = () => {
     }
   };
 
-  const objetos = objectFilled()?"<div>si</div>":"";
+  const objetos = objectFilled() ? "<div>si</div>" : "";
+
+  const printObject = () => {
+    Object.keys(data).forEach((item) => {
+      if (item !== "discos") {
+        if (data[item][0] !== undefined) {
+          elements.push(data[item][0]);
+          //console.log(data[item][0].nombre);
+        }
+      } else {
+        Object.keys(data[item]).forEach((it) => {
+          if (data[item][it][0] !== undefined) {
+            if (data[item][it][0].nombre !== undefined) {
+              elements.push(data[item][it][0]);
+              //console.log(data[item][it][0]);
+            }
+          }
+        });
+      }
+    });
+    return elements;
+    /*
+    Object.values(data).forEach((item) => {
+      Object.values(item).forEach((prop) => {});
+    });*/
+  };
+
   return (
     <Container fluid style={{ height: "100vh", minHeight: "100vh" }}>
       <Row style={{ margin: "15vh 5vw" }}>
@@ -210,8 +247,7 @@ const Configurador = () => {
             >
               Generar Configuración
             </Button>
-
-            {objetos }
+            <Acordeon items={printObject()} />
           </div>
           <Footer />
         </Col>

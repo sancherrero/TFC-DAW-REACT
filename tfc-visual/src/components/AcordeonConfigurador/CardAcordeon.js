@@ -14,14 +14,34 @@ const CardAcordeon = (props) => {
       <Accordion.Collapse eventKey="0">
         <Card.Body>
           <Container>
-            <Col md={6} style={{ textAlign: "left" }}>
+            <Col md="auto" style={{ textAlign: "left" }}>
               <h3>PROCESADOR</h3>
               <Row>
-                <Col xs={12} md={8}>
-                  <p>{props.items}</p>
+                <Col xs={12} md={6}>
+                  {props.components
+                    ? props.components.map((item) => {
+                        return <p key={item.id_componente}>{item.nombre}</p>;
+                      })
+                    : null}
+                  <p></p>
                 </Col>
-                <Col xs={6} md={4}>
-                  <p>{props.items.procesador} €</p>
+                <Col md={2}>
+                  {props.components
+                    ? props.components.map((item) => {
+                        return (
+                          <p key={item.id_componente}>{item.precio_total} €</p>
+                        );
+                      })
+                    : null}
+                </Col>
+                <Col md={4}>
+                  {props.components
+                    ? props.components.map((item) => {
+                        return (
+                          <p key={item.id_componente}>{item.proveedor} €</p>
+                        );
+                      })
+                    : null}
                 </Col>
               </Row>
             </Col>
