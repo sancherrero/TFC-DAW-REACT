@@ -6,26 +6,39 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const CardAcordeon = (props) => {
+  const categorias = [
+    "Memoria RAM",
+    "Tarjeta Gráfica",
+    "Procesador",
+    "Disco Duro ssd",
+    "Disco Duro hdd",
+    "Disco Duro m2",
+  ];
   return (
     <Card>
       <Accordion.Toggle as={Card.Header} eventKey="0">
-        Nuestra configuración
+        <h2>Nuestra Configuración</h2>
       </Accordion.Toggle>
       <Accordion.Collapse eventKey="0">
         <Card.Body>
           <Container>
             <Col md="auto" style={{ textAlign: "left" }}>
-              <h3>PROCESADOR</h3>
               <Row>
                 <Col xs={12} md={6}>
+                  <h3>Componentes: </h3>
                   {props.components
                     ? props.components.map((item) => {
-                        return <p key={item.id_componente}>{item.nombre}</p>;
+                        return (
+                          <a href="#" target="_blank">
+                            <p key={item.id_componente}>{item.nombre}</p>
+                          </a>
+                        );
                       })
                     : null}
                   <p></p>
                 </Col>
-                <Col md={2}>
+                <Col md={2} style={{ textAlign: "center" }}>
+                  <h3>Precios: </h3>
                   {props.components
                     ? props.components.map((item) => {
                         return (
@@ -34,7 +47,8 @@ const CardAcordeon = (props) => {
                       })
                     : null}
                 </Col>
-                <Col md={4}>
+                <Col md={4} style={{ textAlign: "right" }}>
+                  <h3>Tienda: </h3>
                   {props.components
                     ? props.components.map((item) => {
                         return (

@@ -55,7 +55,7 @@ const Configurador = () => {
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=discos&tipoDisco=ssd&min=${param.discos[0].ssd}`
       );
       const discoM2Result = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=discos&tipoDisco=m2&min=${param.discos[0].m2}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=discos&tipoDisco=m.2&min=${param.discos[0].m2}`
       );
       const discoHddResult = await axios(
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=discos&tipoDisco=hdd&min=${param.discos[0].hdd}`
@@ -107,9 +107,9 @@ const Configurador = () => {
         let result = fetchData(configuration.barato[0]);
         return result;
       case "equilibrado":
-        return configuration.equilibrado[0];
+        return fetchData(configuration.equilibrado[0]);
       case "top":
-        return configuration.top[0];
+        return fetchData(configuration.top[0]);
       default:
         return "No ha funcionado";
     }

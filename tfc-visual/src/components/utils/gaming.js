@@ -24,7 +24,7 @@ export const gaming = [
         gpu: [8, 10],
         procesador: 8,
         discos: [{ ssd: 1000, m2: 1000 }],
-        fuente: 850,
+        fuente: [850, 850],
       },
     ],
   },
