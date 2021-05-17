@@ -38,6 +38,10 @@ const Configurador = () => {
     },
   ]);
 
+  const modifyCall = (parametro) => {
+    return Array.isArray(parametro) ? `min=${parametro[0]}&max=${parametro[1]}` : `min=${parametro}`;
+  }
+
   const fetchData = async (param) => {
     try {
       //https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=memoria_ram&min=16&max=128
@@ -46,10 +50,10 @@ const Configurador = () => {
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=ram&min=${param.ram}`
       );
       const gpuResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=gpu&min=${param.gpu[0]}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=gpu&${modifyCall(param.gpu)}`
       );
       const procesadorResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=procesador&min=${param.procesador}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=procesador&${modifyCall(param.procesador)}`
       );
       const discoSsdResult = await axios(
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=discos&tipoDisco=ssd&min=${param.discos[0].ssd}`
@@ -61,7 +65,7 @@ const Configurador = () => {
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=discos&tipoDisco=hdd&min=${param.discos[0].hdd}`
       );
       const fuenteResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=fuente&min=${param.fuente[0]}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=fuente&${modifyCall(param.fuente)}`
       );
       const placaResult = await axios(
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=placa&min=${procesadorResult.data[0].socket}`
@@ -168,14 +172,12 @@ const Configurador = () => {
       if (item !== "discos") {
         if (data[item][0] !== undefined) {
           elements.push(data[item][0]);
-          //console.log(data[item][0].nombre);
         }
       } else {
         Object.keys(data[item]).forEach((it) => {
           if (data[item][it][0] !== undefined) {
             if (data[item][it][0].nombre !== undefined) {
               elements.push(data[item][it][0]);
-              //console.log(data[item][it][0]);
             }
           }
         });

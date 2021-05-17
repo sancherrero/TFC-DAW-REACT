@@ -12,7 +12,7 @@ export const workstation = [
     equilibrado: [
       {
         ram: 32,
-        gpu: [8],
+        gpu: 8,
         procesador: 8,
         discos: [{ m2: 1000, ssd: 1000 }],
         fuente: [850, 1000],
@@ -21,7 +21,7 @@ export const workstation = [
     top: [
       {
         ram: [64, 128],
-        gpu: [10],
+        gpu: 10,
         procesador: 64,
         discos: [{ m2: 2000, sdd: 1000, hdd: 10000 }],
         fuente: [1000, 1050],

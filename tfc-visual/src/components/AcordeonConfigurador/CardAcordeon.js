@@ -6,14 +6,20 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const CardAcordeon = (props) => {
-  const categorias = [
-    "Memoria RAM",
-    "Tarjeta Gráfica",
-    "Procesador",
-    "Disco Duro ssd",
-    "Disco Duro hdd",
-    "Disco Duro m2",
-  ];
+  const categorias = 
+  {
+    memoria_ram: "Memoria RAM",
+    tarjeta_grafica: "Tarjeta Gráfica",
+    procesador: "Procesador",
+    placa_base: "Placa Base",
+    disco_duro: "Disco Duro",
+    fuente_alimentacion: "Fuente de alimentación",
+    caja: "Caja",
+    refrigeracion_liquida: "Refigeración Líquida",
+    refrigeracion_aire: "Refigeración de Aíre"
+  };
+
+  var contadorComponetes = 0;
   return (
     <Card>
       <Accordion.Toggle as={Card.Header} eventKey="0">
@@ -28,10 +34,12 @@ const CardAcordeon = (props) => {
                   <h3>Componentes: </h3>
                   {props.components
                     ? props.components.map((item) => {
+                      contadorComponetes = item.tipo_componente === 'disco_duro' ? 1 + contadorComponetes : contadorComponetes;
                         return (
-                          <a href="#" target="_blank">
-                            <p key={item.id_componente}>{item.nombre}</p>
-                          </a>
+                            <div>
+                              <h5>{categorias[item.tipo_componente]} {item.tipo_componente === 'disco_duro' ? `${item.tipo_disco} ${contadorComponetes}` : null}</h5>
+                              <p key={item.id_componente}><a href={item.url_articulo} target="_blank">{item.nombre}</a></p>
+                            </div>
                         );
                       })
                     : null}
@@ -52,7 +60,7 @@ const CardAcordeon = (props) => {
                   {props.components
                     ? props.components.map((item) => {
                         return (
-                          <p key={item.id_componente}>{item.proveedor} €</p>
+                          <p key={item.id_componente}>{item.proveedor}</p>
                         );
                       })
                     : null}
