@@ -15,8 +15,8 @@ const CardAcordeon = (props) => {
     disco_duro: "Disco Duro",
     fuente_alimentacion: "Fuente de alimentación",
     caja: "Caja",
-    refrigeracion_liquida: "Refigeración Líquida",
-    refrigeracion_aire: "Refigeración de Aíre"
+    refrigeracion_liquida: "Refrigeración Líquida",
+    refrigeracion_aire: "Refrigeración de Aire"
   };
 
   var contadorComponetes = 0;
