@@ -88,7 +88,6 @@ const Configurador = () => {
       });
       console.log(`Data de fetchdata: ${data}`);
     } catch (error) {
-      //setData(null);
       console.log(Object.keys(error), error.message);
     }
   };
@@ -128,6 +127,7 @@ const Configurador = () => {
   };
 
   //ESTE MÉTODO INTENTA COMPROBAR QUE LAS PROPERTIES DE data no estén vacías
+  /*
   const objectFilled = () => {
     for (const properties in data) {
       if (properties.length === 0) {
@@ -136,6 +136,7 @@ const Configurador = () => {
     }
     return true;
   };
+  */
 
   const handleClick = (event) => {
     if (!event) {
@@ -165,7 +166,7 @@ const Configurador = () => {
     }
   };
 
-  const objetos = objectFilled() ? "<div>si</div>" : "";
+  //const objetos = objectFilled() ? "<div>si</div>" : "";
 
   const printObject = () => {
     Object.keys(data).forEach((item) => {

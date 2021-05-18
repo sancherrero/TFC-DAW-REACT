@@ -26,8 +26,8 @@ const ConstrucComponente = (props) => {
       }
     }
     fetchData();
-  }, []);
-  
+  }, [props.componentType]);
+
   return (
     <Container fluid style={{ height: "100vh", minHeight: "100%vh" }}>
       <Row>
@@ -49,12 +49,12 @@ const ConstrucComponente = (props) => {
                 </Spinner>
               )}
             </CardColumns>
-            <Paginador/>
+            <Paginador />
           </div>
           <Footer />
         </Col>
       </Row>
-    </Container> 
+    </Container>
   );
 };
 

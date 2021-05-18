@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const CardAcordeon = (props) => {
-  const categorias = 
+  const categorias =
   {
     memoria_ram: "Memoria RAM",
     tarjeta_grafica: "Tarjeta Gráfica",
@@ -35,13 +35,13 @@ const CardAcordeon = (props) => {
                   {props.components
                     ? props.components.map((item) => {
                       contadorComponetes = item.tipo_componente === 'disco_duro' ? 1 + contadorComponetes : contadorComponetes;
-                        return (
-                            <div>
-                              <h5>{categorias[item.tipo_componente]} {item.tipo_componente === 'disco_duro' ? `${item.tipo_disco} ${contadorComponetes}` : null}</h5>
-                              <p key={item.id_componente}><a href={item.url_articulo} target="_blank">{item.nombre}</a></p>
-                            </div>
-                        );
-                      })
+                      return (
+                        <div>
+                          <h5>{categorias[item.tipo_componente]} {item.tipo_componente === 'disco_duro' ? `${item.tipo_disco} ${contadorComponetes}` : null}</h5>
+                          <p key={item.id_componente}><a href={item.url_articulo} target="_blank" rel="noreferrer">{item.nombre}</a></p>
+                        </div>
+                      );
+                    })
                     : null}
                   <p></p>
                 </Col>
@@ -49,20 +49,20 @@ const CardAcordeon = (props) => {
                   <h3>Precios: </h3>
                   {props.components
                     ? props.components.map((item) => {
-                        return (
-                          <p key={item.id_componente}>{item.precio_total} €</p>
-                        );
-                      })
+                      return (
+                        <p key={item.id_componente}>{item.precio_total} €</p>
+                      );
+                    })
                     : null}
                 </Col>
                 <Col md={4} style={{ textAlign: "right" }}>
                   <h3>Tienda: </h3>
                   {props.components
                     ? props.components.map((item) => {
-                        return (
-                          <p key={item.id_componente}>{item.proveedor}</p>
-                        );
-                      })
+                      return (
+                        <p key={item.id_componente}>{item.proveedor}</p>
+                      );
+                    })
                     : null}
                 </Col>
               </Row>
