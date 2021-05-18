@@ -15,8 +15,7 @@ const CardAcordeon = (props) => {
     disco_duro: "Disco Duro",
     fuente_alimentacion: "Fuente de alimentación",
     caja: "Caja",
-    refrigeracion_liquida: "Refrigeración Líquida",
-    refrigeracion_aire: "Refrigeración de Aire"
+    refrigeracion: "Refrigeración"
   };
 
   var contadorComponetes = 0;
@@ -37,7 +36,8 @@ const CardAcordeon = (props) => {
                       contadorComponetes = item.tipo_componente === 'disco_duro' ? 1 + contadorComponetes : contadorComponetes;
                       return (
                         <div>
-                          <h5>{categorias[item.tipo_componente]} {item.tipo_componente === 'disco_duro' ? `${item.tipo_disco} ${contadorComponetes}` : null}</h5>
+                          <h5>{categorias[item.tipo_componente]} {item.tipo_componente === 'disco_duro' ? `${item.tipo_disco} ${contadorComponetes}` : null} 
+                          {item.tipo_componente === 'refrigeracion' ? `${item.tipo_refrigeracion}` : null}</h5>
                           <p key={item.id_componente}><a href={item.url_articulo} target="_blank" rel="noreferrer">{item.nombre}</a></p>
                         </div>
                       );

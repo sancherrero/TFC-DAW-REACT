@@ -35,6 +35,7 @@ const Configurador = () => {
       fuente: "",
       placa: "",
       caja: "",
+      refrigeracion: "",
     },
   ]);
 
@@ -73,6 +74,9 @@ const Configurador = () => {
       const cajaResult = await axios(
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=caja&min=${placaResult.data[0].factor_forma}`
       );
+      const refrigeracionResult = await axios(
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=refrigeracion&tipoRefrigeracion=${configuration.refrigeracion}`
+      );
       setData({
         ram: ramResult.data,
         gpu: gpuResult.data,
@@ -85,6 +89,7 @@ const Configurador = () => {
         fuente: fuenteResult.data,
         placa: placaResult.data,
         caja: cajaResult.data,
+        refrigeracion: refrigeracionResult.data,
       });
       console.log(`Data de fetchdata: ${data}`);
     } catch (error) {
