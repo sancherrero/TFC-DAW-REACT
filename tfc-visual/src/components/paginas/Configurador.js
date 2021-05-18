@@ -47,7 +47,7 @@ const Configurador = () => {
       //https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=memoria_ram&min=16&max=128
       //https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=memoria_ram&min=16
       const ramResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=ram&min=${param.ram}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=ram&min=${modifyCall(param.ram)}`
       );
       const gpuResult = await axios(
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=gpu&${modifyCall(param.gpu)}`
