@@ -8,7 +8,6 @@ import CardColumns from "react-bootstrap/CardColumns";
 import Card from "../ofertasDeck/Card";
 import Footer from "../footer/Footer";
 import Spinner from "react-bootstrap/Spinner";
-import Paginador from '../paginador/Paginador';
 
 const ConstrucComponente = (props) => {
   const [data, setData] = useState([]);
@@ -49,7 +48,6 @@ const ConstrucComponente = (props) => {
                 </Spinner>
               )}
             </CardColumns>
-            <Paginador />
           </div>
           <Footer />
         </Col>

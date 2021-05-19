@@ -3,7 +3,7 @@ export const gaming = [
     barato: [
       {
         ram: 8,
-        gpu: [2, 4],
+        gpu: 4, //[2, 4],
         procesador: 4,
         discos: [{ ssd: 240, hdd: 480 }],
         fuente: [600, 650],
@@ -12,7 +12,7 @@ export const gaming = [
     equilibrado: [
       {
         ram: 16,
-        gpu: [5, 6],
+        gpu: 6, //[5, 6],
         procesador: 6,
         discos: [{ ssd: 1000, m2: 240 }],
         fuente: [700, 750],

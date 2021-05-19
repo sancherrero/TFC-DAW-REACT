@@ -30,13 +30,13 @@ const TableConfigurador = (props) => {
           <Badge variant="primary">{capitalize(props.properties.precio)}</Badge>
         </h3>
       </ListGroup.Item>
-      <ListGroup.Item>
+      {/* <ListGroup.Item>
         <h3>
           Tamaño:
           <br />
           <Badge variant="primary">{capitalize(props.properties.forma)}</Badge>
         </h3>
-      </ListGroup.Item>
+      </ListGroup.Item> */}
       <ListGroup.Item>
         <h3>
           Tipo de refrigeración:

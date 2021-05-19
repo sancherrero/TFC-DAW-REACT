@@ -21,7 +21,7 @@ const Configurador = () => {
   const [configuration, setConfiguration] = useState({
     tipoUso: "",
     precio: "",
-    forma: "",
+    //forma: "",
     refrigeracion: "",
   });
 
@@ -40,22 +40,37 @@ const Configurador = () => {
   ]);
 
   const modifyCall = (parametro) => {
-    return Array.isArray(parametro) ? `min=${parametro[0]}&max=${parametro[1]}` : `min=${parametro}`;
-  }
+    return Array.isArray(parametro)
+      ? `min=${parametro[0]}&max=${parametro[1]}`
+      : `min=${parametro}`;
+  };
 
   const fetchData = async (param) => {
     try {
       //https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=memoria_ram&min=16&max=128
       //https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=memoria_ram&min=16
       const ramResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=ram&min=${modifyCall(param.ram)}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=ram&${modifyCall(
+          param.ram
+        )}`
       );
       const gpuResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=gpu&${modifyCall(param.gpu)}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=gpu&${modifyCall(
+          param.gpu
+        )}`
       );
       const procesadorResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=procesador&${modifyCall(param.procesador)}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=procesador&${modifyCall(
+          param.procesador
+        )}` //AÑADIR EL SOCKET
       );
+      const placaResult = await axios(
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=placa&min=${procesadorResult.data[0].socket}`
+      );
+      const cajaResult = await axios(
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=caja&min=${placaResult.data[0].factor_forma}`
+      );
+
       const discoSsdResult = await axios(
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=discos&tipoDisco=ssd&min=${param.discos[0].ssd}`
       );
@@ -66,13 +81,9 @@ const Configurador = () => {
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=discos&tipoDisco=hdd&min=${param.discos[0].hdd}`
       );
       const fuenteResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=fuente&${modifyCall(param.fuente)}`
-      );
-      const placaResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=placa&min=${procesadorResult.data[0].socket}`
-      );
-      const cajaResult = await axios(
-        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=caja&min=${placaResult.data[0].factor_forma}`
+        `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=fuente&${modifyCall(
+          param.fuente
+        )}`
       );
       const refrigeracionResult = await axios(
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=refrigeracion&tipoRefrigeracion=${configuration.refrigeracion}`
@@ -96,6 +107,19 @@ const Configurador = () => {
       console.log(Object.keys(error), error.message);
     }
   };
+
+  // const factorFormaSelector = () => {
+  //   switch (configuration.forma) {
+  //     case "pequeño":
+  //       return "miniitx";
+  //     case "mediano":
+  //       return "microatx";
+  //     case "grande":
+  //       return "atx";
+  //     default:
+  //       return "error";
+  //   }
+  // };
 
   const getConfiguration = () => {
     if (isComplete() !== false) {
@@ -157,11 +181,11 @@ const Configurador = () => {
           ...configuration,
           precio: event.currentTarget.attributes["value"].nodeValue,
         });
-      } else if (event.currentTarget.className.includes("forma")) {
-        setConfiguration({
-          ...configuration,
-          forma: event.currentTarget.attributes["value"].nodeValue,
-        });
+        // } else if (event.currentTarget.className.includes("forma")) {
+        //   setConfiguration({
+        //     ...configuration,
+        //     forma: event.currentTarget.attributes["value"].nodeValue,
+        //   });
       } else if (event.currentTarget.className.includes("refrigeracion")) {
         setConfiguration({
           ...configuration,
