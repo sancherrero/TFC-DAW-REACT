@@ -5,9 +5,10 @@ const CardCategorias = (props) => {
   return (
     <Card
       style={{
-        width: "100%",
+        width: "70%",
         height: "50%",
-        marginTop: "10%",
+        marginTop: "15%",
+        marginLeft: "15%",
         borderRadius: "20%",
       }}
     >

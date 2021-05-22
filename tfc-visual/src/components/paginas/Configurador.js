@@ -15,6 +15,7 @@ import { workstation } from "../utils/workstation";
 import Button from "react-bootstrap/Button";
 import Acordeon from "../AcordeonConfigurador/Acordeon";
 import axios from "axios";
+import Descripcion from "../configurador/Descripcion";
 
 const Configurador = () => {
   var elements = [];
@@ -108,19 +109,6 @@ const Configurador = () => {
     }
   };
 
-  // const factorFormaSelector = () => {
-  //   switch (configuration.forma) {
-  //     case "pequeño":
-  //       return "miniitx";
-  //     case "mediano":
-  //       return "microatx";
-  //     case "grande":
-  //       return "atx";
-  //     default:
-  //       return "error";
-  //   }
-  // };
-
   const getConfiguration = () => {
     if (isComplete() !== false) {
       if (configuration.tipoUso === "gaming") {
@@ -154,18 +142,6 @@ const Configurador = () => {
       }
     }
   };
-
-  //ESTE MÉTODO INTENTA COMPROBAR QUE LAS PROPERTIES DE data no estén vacías
-  /*
-  const objectFilled = () => {
-    for (const properties in data) {
-      if (properties.length === 0) {
-        return false;
-      }
-    }
-    return true;
-  };
-  */
 
   const handleClick = (event) => {
     if (!event) {
@@ -226,6 +202,7 @@ const Configurador = () => {
         <Col style={{ height: "100%" }}>
           <div>
             <h1 style={{ marginBottom: "5%" }}>CONFIGURA TU EQUIPO A MEDIDA</h1>
+            <Descripcion />
             <hr />
 
             <CardColumns>
