@@ -26,6 +26,22 @@ const Home = () => {
     fetchData();
   }, []);
 
+  var contador = 0;
+
+  const categories = (item, cont) =>{
+    const i = 
+                <Col>
+                  <CardCategorias items={item} />
+                </Col>;
+    if(cont === 3){
+      contador = 0;
+      return <Container key={item.nombre}>{i}</Container>;
+    }
+     return i;
+    
+      
+  }
+
   return (
     <Container fluid style={{ height: "100vh", minHeight: "100vh" }}>
       <Carrusel style={{ width: "100vh" }} />
@@ -52,11 +68,7 @@ const Home = () => {
         <CardColumns>
           {categorias !== null ? (
             categorias.map((item) => (
-              <Container key={item.nombre}>
-                <Col>
-                  <CardCategorias items={item} />
-                </Col>
-              </Container>
+              categories(item, contador++)
             ))
           ) : (
             <Spinner animation="border" role="status">
