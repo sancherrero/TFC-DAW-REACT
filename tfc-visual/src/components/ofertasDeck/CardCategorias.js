@@ -12,18 +12,20 @@ const CardCategorias = (props) => {
         borderRadius: "20%",
       }}
     >
-      <Card.Img
-        variant="top"
-        src={props.items.img}
-        style={{
-          width: "100%",
-          height: "250px",
-          borderRadius: "20%",
-        }}
-        onClick={props.parentCallback}
-        className={props.items.className}
-        value={props.items.value}
-      />
+      <a href={props.items.route}>
+        <Card.Img
+          variant="top"
+          src={props.items.img}
+          style={{
+            width: "100%",
+            height: "250px",
+            borderRadius: "20%",
+          }}
+          onClick={props.parentCallback}
+          className={props.items.className}
+          value={props.items.value}
+        />
+      </a>
       <Card.Body>
         <Card.Title
           style={{
