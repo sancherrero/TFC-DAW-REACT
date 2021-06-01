@@ -9,8 +9,8 @@ const Descripcion = () => {
         Tipo de uso, Rango de precio y Refrigeración ). El primero de ellos,
         Tipo de uso hace referencia al desempeño que nuestro equipo requiere.
       </h6>
-      <CardColumns>
-        <Card style={{ width: "18rem" }}>
+      <CardColumns style={{ margin: "20px", textAlign: "center" }}>
+        <Card border="light" style={{ width: "18rem" }}>
           <Card.Body>
             <Card.Title>Equipo "Gaming"</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">Potente </Card.Subtitle>
@@ -22,7 +22,7 @@ const Descripcion = () => {
             </Card.Text>
           </Card.Body>
         </Card>
-        <Card style={{ width: "18rem" }}>
+        <Card border="light" style={{ width: "18rem" }}>
           <Card.Body>
             <Card.Title>Equipo "Multimedia"</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
@@ -36,7 +36,7 @@ const Descripcion = () => {
             </Card.Text>
           </Card.Body>
         </Card>
-        <Card style={{ width: "18rem" }}>
+        <Card border="light" style={{ width: "18rem" }}>
           <Card.Body>
             <Card.Title>Equipo "Workstation"</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">Trabajo</Card.Subtitle>

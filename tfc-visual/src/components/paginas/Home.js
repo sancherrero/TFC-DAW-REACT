@@ -10,6 +10,7 @@ import CardCategorias from "../ofertasDeck/CardCategorias";
 import Footer from "../footer/Footer";
 import Spinner from "react-bootstrap/Spinner";
 import { categorias } from "../utils/categorias";
+import FeaturedConfigurador from "../configurador/FeaturedConfiguradorHome";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -28,57 +29,59 @@ const Home = () => {
 
   var contador = 0;
 
-  const categories = (item, cont) =>{
-    const i = 
-                <Col>
-                  <CardCategorias items={item} />
-                </Col>;
-    if(cont === 3){
+  const categories = (item, cont) => {
+    const i = (
+      <Col>
+        <CardCategorias items={item} />
+      </Col>
+    );
+    if (cont === 3) {
       contador = 0;
       return <Container key={item.nombre}>{i}</Container>;
     }
-     return i;
-    
-      
-  }
+    return i;
+  };
 
   return (
-    <Container fluid style={{ height: "100vh", minHeight: "100vh" }}>
+    <>
       <Carrusel style={{ width: "100vh" }} />
-      <div className="section-ofertas">
-        <h1>Novedades</h1>
-        <CardColumns>
-          {data !== null ? (
-            data.map((item) => (
-              <Container key={item.id}>
-                <Col className="col-sm-12">
-                  <Card items={item} />
-                </Col>
-              </Container>
-            ))
-          ) : (
-            <Spinner animation="border" role="status">
-              <span className="sr-only">Cargando...</span>
-            </Spinner>
-          )}
-        </CardColumns>
-      </div>
-      <div className="section-ofertas">
-        <h1>Categorías</h1>
-        <CardColumns>
-          {categorias !== null ? (
-            categorias.map((item) => (
-              categories(item, contador++)
-            ))
-          ) : (
-            <Spinner animation="border" role="status">
-              <span className="sr-only">Cargando...</span>
-            </Spinner>
-          )}
-        </CardColumns>
-      </div>
-      <Footer />
-    </Container>
+      <Container fluid style={{ height: "100vh", minHeight: "100vh" }}>
+        <div className="section-configurador">
+          <FeaturedConfigurador />
+        </div>
+        <div className="section-ofertas">
+          <h1>Novedades</h1>
+          <CardColumns>
+            {data !== null ? (
+              data.map((item) => (
+                <Container key={item.id}>
+                  <Col className="col-sm-12">
+                    <Card items={item} />
+                  </Col>
+                </Container>
+              ))
+            ) : (
+              <Spinner animation="border" role="status">
+                <span className="sr-only">Cargando...</span>
+              </Spinner>
+            )}
+          </CardColumns>
+        </div>
+        <div className="section-ofertas">
+          <h1>Categorías</h1>
+          <CardColumns>
+            {categorias !== null ? (
+              categorias.map((item) => categories(item, contador++))
+            ) : (
+              <Spinner animation="border" role="status">
+                <span className="sr-only">Cargando...</span>
+              </Spinner>
+            )}
+          </CardColumns>
+        </div>
+        <Footer />
+      </Container>
+    </>
   );
 };
 

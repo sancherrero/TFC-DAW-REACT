@@ -16,6 +16,11 @@ import Button from "react-bootstrap/Button";
 import Acordeon from "../AcordeonConfigurador/Acordeon";
 import axios from "axios";
 import Descripcion from "../configurador/Descripcion";
+import {
+  stylesContainer,
+  stylesRowContainerPrincipal,
+  stylesDivEquipoSeleccionado,
+} from "../../css/configuradorCss";
 
 const Configurador = () => {
   var elements = [];
@@ -171,8 +176,6 @@ const Configurador = () => {
     }
   };
 
-  //const objetos = objectFilled() ? "<div>si</div>" : "";
-
   const printObject = () => {
     Object.keys(data).forEach((item) => {
       if (item !== "discos") {
@@ -190,15 +193,11 @@ const Configurador = () => {
       }
     });
     return elements;
-    /*
-    Object.values(data).forEach((item) => {
-      Object.values(item).forEach((prop) => {});
-    });*/
   };
 
   return (
-    <Container fluid style={{ height: "100vh", minHeight: "100vh" }}>
-      <Row style={{ margin: "15vh 5vw" }}>
+    <Container fluid style={stylesContainer}>
+      <Row id="rowContainerPrincipal" style={stylesRowContainerPrincipal}>
         <Col style={{ height: "100%" }}>
           <div>
             <h1 style={{ marginBottom: "5%" }}>CONFIGURA TU EQUIPO A MEDIDA</h1>
@@ -227,11 +226,9 @@ const Configurador = () => {
             <h1 style={{ margin: "5% 0%" }}>EQUIPO SELECCIONADO</h1>
             <hr />
             <div
+              id="divEquipoSeleccionado"
               className="mb-2"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-              }}
+              style={stylesDivEquipoSeleccionado}
             >
               <TableConfigurador properties={configuration} />
             </div>

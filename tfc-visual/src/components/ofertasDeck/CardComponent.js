@@ -1,20 +1,16 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-
+import {
+  stylesCardOfertasDeckImg,
+  stylesCardOfertasDeck,
+} from "../../css/cardCss";
 const OfertasDeck = (props) => {
   return (
-    <Card style={{ height: "50vh", marginTop: "10%" }}>
+    <Card style={stylesCardOfertasDeck}>
       <Card.Img
         variant="top"
         src={props.items.url_imagen}
-        style={{
-          width: "auto",
-          height: "auto",
-          maxWidth: "200px",
-          maxHeight: "200px",
-          margin: "auto",
-          display: "block",
-        }}
+        style={stylesCardOfertasDeckImg}
       />
       <Card.Body>
         <Card.Title>{props.items.nombre}</Card.Title>
