@@ -65,6 +65,11 @@ class NavBar extends React.Component {
                     Cajas
                   </Link>
                 </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link href="/refrigeracion" className="item">
+                    Refrigeración
+                  </Link>
+                </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/componentes" className="item">
                   Todo
