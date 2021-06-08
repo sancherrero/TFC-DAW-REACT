@@ -2,9 +2,6 @@ import React, { Fragment } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
 import Link from "../Link";
 
 class NavBar extends React.Component {
@@ -74,14 +71,6 @@ class NavBar extends React.Component {
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Form inline>
-              <FormControl
-                type="text"
-                placeholder="Intel Core I5..."
-                className="mr-sm-2"
-              />
-              <Button variant="outline-success">Buscar</Button>
-            </Form>
           </Navbar.Collapse>
         </Navbar>
       </Fragment>

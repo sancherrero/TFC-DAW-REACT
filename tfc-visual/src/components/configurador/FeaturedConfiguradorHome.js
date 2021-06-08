@@ -19,9 +19,10 @@ const FeaturedConfigurador = () => {
           sin preocuparte por el rendimiento y lo mejor: con los precios más
           baratos en los mejores componentes del mercado. ¿Quieres verlo?
         </Card.Text>
-        <Button variant="primary">
-          <Link href="/configurador" className="item"></Link>
-          ¡Vamos!
+        <Button variant="secondary">
+          <Link href="/configurador" className="item">
+            ¡Vamos!
+          </Link>
         </Button>
       </Card.Body>
     </Card>

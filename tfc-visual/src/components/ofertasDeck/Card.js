@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Route from "./../Route";
-import Accordion from 'react-bootstrap/Accordion'
+import Accordion from "react-bootstrap/Accordion";
 import Componente from "./../paginas/Componente";
-import Button from 'react-bootstrap/Button'
+import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
-import Table from 'react-bootstrap/Table';
-
+import Table from "react-bootstrap/Table";
 
 const OfertasDeck = (props) => {
   const [data, setData] = useState([]);
@@ -26,7 +25,6 @@ const OfertasDeck = (props) => {
     }
     fetchData();
   }, [props.items.nombre]);
-
 
   return (
     <Card
@@ -51,7 +49,7 @@ const OfertasDeck = (props) => {
         <Card.Title>{props.items.nombre}</Card.Title>
         <Card.Text>Proveedor: {props.items.proveedor}</Card.Text>
         <Card.Text>
-          Precio: {props.items.precio_minimo | props.items.precio_total}€
+          Precio: {props.items.precio_articulo | props.items.precio_minimo}€
         </Card.Text>
       </Card.Body>
       <Card.Footer>
@@ -63,7 +61,7 @@ const OfertasDeck = (props) => {
               <Card.Header>
                 <Accordion.Toggle as={Button} variant="link" eventKey="0">
                   Ver más
-              </Accordion.Toggle>
+                </Accordion.Toggle>
               </Card.Header>
               <Accordion.Collapse eventKey="0">
                 <Card.Body>
@@ -76,7 +74,9 @@ const OfertasDeck = (props) => {
                       {data !== null ? (
                         data.map((item) => (
                           <tr>
-                            <td><a href={item.url_articulo}>{item.proveedor}</a></td>
+                            <td>
+                              <a href={item.url_articulo}>{item.proveedor}</a>
+                            </td>
                             <td>{item.precio_total} €</td>
                           </tr>
                         ))

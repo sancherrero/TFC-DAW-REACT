@@ -21,7 +21,7 @@ export const workstation = [
     top: [
       {
         ram: [64, 128],
-        gpu: 10,
+        gpu: 12,
         procesador: 64,
         discos: [{ m2: 1000, ssd: 1000, hdd: 10000 }],
         fuente: [1000, 1050],

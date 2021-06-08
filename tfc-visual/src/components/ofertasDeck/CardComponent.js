@@ -16,7 +16,7 @@ const OfertasDeck = (props) => {
         <Card.Title>{props.items.nombre}</Card.Title>
         <Card.Text>Proveedor: {props.items.proveedor}</Card.Text>
         <Card.Text>
-          Precio: {props.items.precio_minimo | props.items.precio_total}€
+          Precio: {props.items.precio_total | props.items.precio_minimo}€
         </Card.Text>
       </Card.Body>
       <Card.Footer>
