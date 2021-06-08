@@ -31,6 +31,7 @@ const OfertasDeck = (props) => {
       style={{
         height: "600px",
         marginTop: "10%",
+        border: "none"
       }}
     >
       <Card.Img
@@ -57,8 +58,8 @@ const OfertasDeck = (props) => {
           <a href={props.items.url_articulo}>Ir al sitio</a>
         ) : (
           <Accordion>
-            <Card>
-              <Card.Header>
+            <Card style={{border: "none"}}>
+              <Card.Header >
                 <Accordion.Toggle as={Button} variant="link" eventKey="0">
                   Ver más
                 </Accordion.Toggle>

@@ -3,7 +3,10 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Link from "../Link";
 const stylesCard = {
-  margin: "15vh",
+  margin: "13vh",
+  background: 'none',
+  color: '#fff',
+  border: 'none'
 };
 
 const FeaturedConfigurador = () => {
@@ -19,11 +22,13 @@ const FeaturedConfigurador = () => {
           sin preocuparte por el rendimiento y lo mejor: con los precios más
           baratos en los mejores componentes del mercado. ¿Quieres verlo?
         </Card.Text>
-        <Button variant="secondary">
-          <Link href="/configurador" className="item">
+        <Link href="/configurador" className="item" style={{color: '#fff'}}>
+        <Button variant="primary" >
+          
             ¡Vamos!
-          </Link>
+          
         </Button>
+        </Link>
       </Card.Body>
     </Card>
   );

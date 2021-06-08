@@ -202,9 +202,7 @@ const Configurador = () => {
           <div>
             <h1 style={{ marginBottom: "5%" }}>CONFIGURA TU EQUIPO A MEDIDA</h1>
             <Descripcion />
-            <hr />
-
-            <CardColumns>
+            <CardColumns style={{margin: '0 5% 0 5%'}}>
               {console.log(configuration)}
               {categoriasGenerador !== null ? (
                 categoriasGenerador.map((item) => (
@@ -246,9 +244,6 @@ const Configurador = () => {
             <Button
               variant="primary"
               size="lg"
-              style={{
-                margin: "10px 0px",
-              }}
               onClick={() => getConfiguration()}
             >
               Generar Configuración

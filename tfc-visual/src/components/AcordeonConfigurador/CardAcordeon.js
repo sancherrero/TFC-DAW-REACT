@@ -18,6 +18,7 @@ const CardAcordeon = (props) => {
   };
 
   var contadorComponetes = 0;
+  var precioTotal = 0;
   return (
     <Card>
       <Accordion.Toggle as={Card.Header} eventKey="0">
@@ -66,8 +67,9 @@ const CardAcordeon = (props) => {
                   <h3>Precios: </h3>
                   {props.components
                     ? props.components.map((item) => {
+                        precioTotal += parseFloat(item.precio_total);
                         return (
-                          <p key={item.id_componente}>{item.precio_total} €</p>
+                          <p style={{marginTop: '30%'}} key={item.id_componente}>{item.precio_total} €</p>
                         );
                       })
                     : null}
@@ -79,13 +81,15 @@ const CardAcordeon = (props) => {
                         return (
                           <div>
                             <br />
-                            <p key={item.id_componente}>{item.proveedor}</p>
+                            <p style={{marginTop: '0.7vh'}} key={item.id_componente}>{item.proveedor}</p>
                           </div>
                         );
                       })
                     : null}
                 </Col>
               </Row>
+              <br />
+              <h4 style={{textAlign: 'right'}}>Precio Total del Equipo: {precioTotal.toFixed(2)} €</h4>
             </Col>
           </Container>
         </Card.Body>

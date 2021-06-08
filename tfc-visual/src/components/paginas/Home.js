@@ -11,6 +11,7 @@ import Footer from "../footer/Footer";
 import Spinner from "react-bootstrap/Spinner";
 import { categorias } from "../utils/categorias";
 import FeaturedConfigurador from "../configurador/FeaturedConfiguradorHome";
+import descriptImage from '../../images/fondoFeatured.jpeg'
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -46,7 +47,7 @@ const Home = () => {
     <>
       <Carrusel style={{ width: "100vh" }} />
       <Container fluid style={{ height: "100vh", minHeight: "100vh" }}>
-        <div className="section-configurador">
+        <div className="section-configurador" style={{backgroundImage: 'url('+descriptImage+')', backgroundSize:'cover',padding:'1%', margin:'10% 10%'}}>
           <FeaturedConfigurador />
         </div>
         <div className="section-ofertas">
@@ -69,7 +70,7 @@ const Home = () => {
         </div>
         <div className="section-ofertas">
           <h1>Categorías</h1>
-          <CardColumns>
+          <CardColumns style={{margin: '0 10% 0 10%'}}>
             {categorias !== null ? (
               categorias.map((item) => categories(item, contador++))
             ) : (
