@@ -1,20 +1,17 @@
 export const categorias = [
   {
     nombre: "Procesadores",
-    img:
-      "https://proyecto-final-daw.000webhostapp.com/img_categorias/procesadores.jpg",
+    img: "https://proyecto-final-daw.000webhostapp.com/img_categorias/procesadores.jpg",
     route: "/procesadores",
   },
   {
     nombre: "Tarjetas Gráficas",
-    img:
-      "https://proyecto-final-daw.000webhostapp.com/img_categorias/tarjetasGraficas.jpg",
+    img: "https://proyecto-final-daw.000webhostapp.com/img_categorias/tarjetasGraficas.jpg",
     route: "/tarjetas_graficas",
   },
   {
     nombre: "Placas Base",
-    img:
-      "https://proyecto-final-daw.000webhostapp.com/img_categorias/placasBase.jpeg",
+    img: "https://proyecto-final-daw.000webhostapp.com/img_categorias/placasBase.jpeg",
     route: "/placas_base",
   },
   {
@@ -24,20 +21,22 @@ export const categorias = [
   },
   {
     nombre: "Discos Duros",
-    img:
-      "https://proyecto-final-daw.000webhostapp.com/img_categorias/discosDuros.jpg",
+    img: "https://proyecto-final-daw.000webhostapp.com/img_categorias/discosDuros.jpg",
     route: "/discos_duros",
   },
   {
     nombre: "Fuentes de Alimentación",
-    img:
-      "https://proyecto-final-daw.000webhostapp.com/img_categorias/fuentesAlimentacion.jpg",
+    img: "https://proyecto-final-daw.000webhostapp.com/img_categorias/fuentesAlimentacion.jpg",
     route: "/fuentes_alimentacion",
   },
   {
     nombre: "Cajas",
-    img:
-      "https://proyecto-final-daw.000webhostapp.com/img_categorias/cajas.jpg",
+    img: "https://proyecto-final-daw.000webhostapp.com/img_categorias/cajas.jpg",
     route: "/cajas",
+  },
+  {
+    nombre: "Refrigeracion",
+    img: "https://proyecto-final-daw.000webhostapp.com/img_categorias/refrigeracion.jpg",
+    route: "/refrigeracion",
   },
 ];
