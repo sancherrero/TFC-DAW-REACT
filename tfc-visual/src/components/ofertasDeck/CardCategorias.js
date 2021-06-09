@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import Card from "react-bootstrap/Card";
 import {
   stylesCardCategorias,
@@ -9,6 +9,7 @@ import {
 
 const CardCategorias = (props) => {
 
+  //, {useState}
   // const [isActive, setActive] = useState("false");
 
   // const handleToggle = () => {
