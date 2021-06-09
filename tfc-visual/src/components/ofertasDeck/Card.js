@@ -55,7 +55,7 @@ const OfertasDeck = (props) => {
       </Card.Body>
       <Card.Footer>
         {props.items.url_articulo !== undefined ? (
-          <a href={props.items.url_articulo}>Ir al sitio</a>
+          <a href={props.items.url_articulo} target="_blank" rel='noreferrer' >Ir al sitio</a>
         ) : (
           <Accordion>
             <Card style={{border: "none"}}>
@@ -76,7 +76,7 @@ const OfertasDeck = (props) => {
                         data.map((item) => (
                           <tr>
                             <td>
-                              <a href={item.url_articulo}>{item.proveedor}</a>
+                              <a href={item.url_articulo} target="_blank" rel='noreferrer' >{item.proveedor}</a>
                             </td>
                             <td>{item.precio_total} €</td>
                           </tr>

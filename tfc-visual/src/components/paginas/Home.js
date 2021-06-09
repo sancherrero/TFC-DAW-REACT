@@ -16,8 +16,6 @@ import descriptImage from '../../images/fondoFeatured.jpeg'
 const Home = () => {
   const [data, setData] = useState([]);
 
-  //var cors = require("cors");
-
   useEffect(() => {
     async function fetchData() {
       const result = await axios(

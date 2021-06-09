@@ -53,8 +53,6 @@ const Configurador = () => {
 
   const fetchData = async (param) => {
     try {
-      //https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=memoria_ram&min=16&max=128
-      //https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=memoria_ram&min=16
       const ramResult = await axios(
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=ram&${modifyCall(
           param.ram
@@ -68,7 +66,7 @@ const Configurador = () => {
       const procesadorResult = await axios(
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=procesador&${modifyCall(
           param.procesador
-        )}` //AÑADIR EL SOCKET
+        )}`
       );
       const placaResult = await axios(
         `https://proyecto-final-daw.000webhostapp.com/ajax/componentes.php?tipoGenerador=placa&min=${procesadorResult.data[0].socket}`

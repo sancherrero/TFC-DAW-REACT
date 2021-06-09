@@ -22,7 +22,7 @@ const FeaturedConfigurador = () => {
           sin preocuparte por el rendimiento y lo mejor: con los precios más
           baratos en los mejores componentes del mercado. ¿Quieres verlo?
         </Card.Text>
-        <Link href="/configurador" className="item" style={{color: '#fff'}}>
+        <Link href="/configurador" onClick={() => document.body.scrollTop = 0} className="item" style={{color: '#fff'}}>
         <Button variant="primary" >
           
             ¡Vamos!

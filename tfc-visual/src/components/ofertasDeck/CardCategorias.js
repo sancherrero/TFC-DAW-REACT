@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Card from "react-bootstrap/Card";
 import {
   stylesCardCategorias,
@@ -6,7 +6,18 @@ import {
   stylesCardCategoriasTitle,
 } from "../../css/cardCss";
 
+
 const CardCategorias = (props) => {
+
+  // const [isActive, setActive] = useState("false");
+
+  // const handleToggle = () => {
+  //    setActive(!isActive);
+  //  }
+
+  // //handleToggle()
+  //style={isActive ? {backgroundColor: 'blue'} : null}
+  
   return (
     <Card style={stylesCardCategorias}>
       <a href={props.items.route}>
@@ -14,13 +25,13 @@ const CardCategorias = (props) => {
           variant="top"
           src={props.items.img}
           style={stylesCardCategoriasImg}
-          onClick={props.parentCallback}
+          onClick={function(event){ props.parentCallback(event);  }}
           className={props.items.className}
           value={props.items.value}
         />
       </a>
       <Card.Body>
-        <Card.Title style={stylesCardCategoriasTitle}>
+        <Card.Title  style={stylesCardCategoriasTitle}>
           {props.items.nombre}
         </Card.Title>
       </Card.Body>
