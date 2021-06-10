@@ -31,7 +31,7 @@ const CardCategorias = (props) => {
           value={props.items.value}
         />
       </a>
-      <Card.Body style={isActive && props.seleccionable ? {backgroundColor: 'lightBlue'} : {backgroundColor: '#fff'}}>
+      <Card.Body style={isActive && props.seleccionable ? {backgroundColor: 'lightBlue'} : null}>
         <Card.Title  style={stylesCardCategoriasTitle}>
           {props.items.nombre}
         </Card.Title>
