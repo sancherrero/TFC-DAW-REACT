@@ -67,10 +67,15 @@ const CardAcordeon = (props) => {
                   <h3>Precios: </h3>
                   {props.components
                     ? props.components.map((item) => {
-                        precioTotal += parseFloat(item.precio_total);
-                        return (
-                          <p style={{marginTop: '30%'}} key={item.id_componente}>{item.precio_total} €</p>
-                        );
+                        if(!isNaN(item.precio_total)){
+                          precioTotal += parseFloat(item.precio_total);
+                          return (
+                            <p style={{marginTop: '30%'}} key={item.id_componente}>{item.precio_total} €</p>
+                          );
+                        }
+                        return null;
+                        
+                        
                       })
                     : null}
                 </Col>

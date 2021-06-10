@@ -4,8 +4,9 @@ const Route = ({ path, children }) => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
-    const onLocationChange = () => {
+    const onLocationChange = () => {      
       setCurrentPath(window.location.pathname);
+      window.scrollTo(0,0);
     };
     window.addEventListener("popstate", onLocationChange);
 

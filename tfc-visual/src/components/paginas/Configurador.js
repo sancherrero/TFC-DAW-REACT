@@ -160,11 +160,6 @@ const Configurador = () => {
           ...configuration,
           precio: event.currentTarget.attributes["value"].nodeValue,
         });
-        // } else if (event.currentTarget.className.includes("forma")) {
-        //   setConfiguration({
-        //     ...configuration,
-        //     forma: event.currentTarget.attributes["value"].nodeValue,
-        //   });
       } else if (event.currentTarget.className.includes("refrigeracion")) {
         setConfiguration({
           ...configuration,
@@ -209,6 +204,7 @@ const Configurador = () => {
                       <CardCategorias
                         parentCallback={handleClick}
                         items={item}
+                        seleccionable='true'
                       />
                     </Col>
                   </Container>
