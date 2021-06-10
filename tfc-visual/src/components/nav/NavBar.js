@@ -28,7 +28,7 @@ class NavBar extends React.Component {
               <NavDropdown
                 title="Componentes"
                 id="basic-nav-dropdown"
-                className="text-white"
+
               >
                 <NavDropdown.Item>
                   <Link href="/procesadores" className="item">

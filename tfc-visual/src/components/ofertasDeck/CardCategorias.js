@@ -10,7 +10,7 @@ import {
 const CardCategorias = (props) => {
 
   //, {useState}
-  const [isActive, setActive] = useState("false");
+  const [isActive, setActive] = useState(false);
 
    const handleToggle = () => {
      setActive(!isActive);
@@ -31,7 +31,7 @@ const CardCategorias = (props) => {
           value={props.items.value}
         />
       </a>
-      <Card.Body style={!isActive && props.seleccionable ? {backgroundColor: 'lightBlue'} : {backgroundColor: '#fff'}}>
+      <Card.Body style={isActive && props.seleccionable ? {backgroundColor: 'lightBlue'} : {backgroundColor: '#fff'}}>
         <Card.Title  style={stylesCardCategoriasTitle}>
           {props.items.nombre}
         </Card.Title>
